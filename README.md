@@ -3,110 +3,114 @@
 A comprehensive REST API for a modern bus ticket booking system with user authentication, ticket management, payment integration, and real-time notifications.
 
 # 🌟 Features
-🔐 Authentication & Authorization
+* 🔐 Authentication & Authorization
 User registration & login with JWT
 
-Role-based access control (User/Admin)
+* Role-based access control (User/Admin)
 
-Password reset functionality
+* Password reset functionality
 
-Token refresh mechanism
+* Token refresh mechanism
 
 # 🚌 Bus & Trip Management
-Bus operators management
+* Bus operators management
 
-Bus fleet management (AC/Non-AC, seating capacity)
+* Bus fleet management (AC/Non-AC, seating capacity)
 
-Route management (source to destination)
+* Route management (source to destination)
 
-Trip scheduling with departure/arrival times
+* Trip scheduling with departure/arrival times
 
-Real-time seat availability
+* Real-time seat availability
 
 # 🎫 Ticket Booking System
-Browse available trips
+* Browse available trips
 
-Seat selection with visual layout
+* Seat selection with visual layout
 
-Passenger information management
+* Passenger information management
 
-Booking confirmation & e-ticket generation
+* Booking confirmation & e-ticket generation
 
-Booking history & status tracking
+* Booking history & status tracking
 
 # 💳 Payment Integration
-bKash payment gateway integration
+* bKash payment gateway integration
 
-Payment status tracking (Pending/Success/Failed)
+* Payment status tracking (Pending/Success/Failed)
 
-Transaction history
+* Transaction history
 
-Refund processing
+* Refund processing
 
 # 🔔 Notifications System
-Real-time notifications
+* Real-time notifications 
 
-Booking confirmations
+* Booking confirmations
 
-Payment receipts
+* Payment receipts
 
-Trip reminders & updates
+* Trip reminders & updates
 
-System announcements
+* System announcements
 
 # 👤 User Management
-Profile management
+* Profile management
 
-Booking history
+* Booking history
 
-Favorite routes
+* Favorite routes
 
-User preferences
+* User preferences
 
 # 📊 Admin Dashboard
-System analytics & reports
+* System analytics & reports
 
-User management
+* User management
 
-Revenue tracking
+* Revenue tracking
 
-Trip management
+* Trip management
 
-Notification broadcasting
+* Notification broadcasting
 
 # 🛠️ Tech Stack
-Technology	Purpose
-Node.js	Runtime Environment
-Express.js	Web Framework
-MongoDB	Database
-Mongoose	ODM for MongoDB
-JWT	Authentication
-bcryptjs	Password Hashing
-Jest	Testing Framework
-Socket.io	Real-time Notifications
-Redis	Caching & Rate Limiting
+* Technology	Purpose
+* Node.js	Runtime Environment
+* Express.js	Web Framework
+* MongoDB	Database
+* Mongoose	ODM for MongoDB
+* JWT	Authentication
+* bcryptjs	Password Hashing
+* Jest	Testing Framework
+* Socket.io	Real-time Notifications
+* Redis	Caching & Rate Limiting
 # 🚀 Quick Start
-Prerequisites
-Node.js (v18 or higher)
+* Prerequisites
+ - Node.js (v18 or higher)
 
-MongoDB (Local or Atlas)
+ - MongoDB (Local or Atlas)
 
-npm or yarn
+ - npm or yarn
 
 # Installation
-Clone the repository
 
-bash
+### 1.Clone the repository
+
+```bash
 git clone https://github.com/yourusername/bus-ticket-api.git
 cd bus-ticket-api
-Install dependencies
+```
 
-bash
+### 2.Install dependencies
+
+```bash
 npm install
 Configure environment variables
-
-bash
+```
+```bash
 cp .env.example .env
+```
 # Edit .env with your configuration
 Start the development server
 
