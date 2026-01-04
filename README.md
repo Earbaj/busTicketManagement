@@ -622,13 +622,9 @@ volumes:
 
 ### Git Workflow
 1. Create feature branch from develop
-
 2. Make changes with descriptive commits
-
 3. Run tests before pushing
-
 4. Create pull request for review
-
 5. Merge after approval
 
 ### 📊 API Rate Limiting
@@ -644,24 +640,17 @@ volumes:
 
 ### 🔐 Security Best Practices
 1. HTTPS: Always use HTTPS in production
-
 2. CORS: Configure proper CORS settings
-
 3. Helmet: Security headers middleware
-
 4. Input Validation: Validate all user inputs
-
 5. SQL Injection: Use parameterized queries
-
 6. XSS Protection: Sanitize user inputs
-
 7. Rate Limiting: Prevent brute force attacks
-
 8. JWT Security: Store tokens securely
 
-📱 Mobile App Integration
+### 📱 Mobile App Integration
 Flutter/Dart Example
-dart
+```dart
 import 'package:http/http.dart' as http;
 
 class BusTicketAPI {
@@ -694,40 +683,31 @@ class BusTicketAPI {
     // Parse response
   }
 }
-📞 Support & Contact
-Issue Reporting
-Check existing issues on GitHub
+```
 
-Create new issue with:
+### 📞 Support & Contact
+1. Issue Reporting
+2. Check existing issues on GitHub
+3. Create new issue with:
+4. Description of the problem
+5. Steps to reproduce
+6. Expected vs actual behavior
+7. Screenshots if applicable
 
-Description of the problem
+### Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit pull request
 
-Steps to reproduce
+### Contact
+**Email: earbajsaria3@gmail.com**
 
-Expected vs actual behavior
+### 🙏 Acknowledgments
 
-Screenshots if applicable
++ MongoDB for the robust database
++ Open source contributors
++ Testing libraries maintainers
 
-Contributing
-Fork the repository
-
-Create a feature branch
-
-Make your changes
-
-Add tests
-
-Submit pull request
-
-Contact
-Email: earbajsaria3@gmail.com
-
-🙏 Acknowledgments
-
-MongoDB for the robust database
-
-Open source contributors
-
-Testing libraries maintainers
-
-🚀 Happy Coding! Build amazing bus booking experiences!
+# 🚀 Happy Coding! Build amazing bus booking experiences!
