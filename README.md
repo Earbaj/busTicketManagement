@@ -106,63 +106,63 @@ cd bus-ticket-api
 
 ```bash
 npm install
-Configure environment variables
 ```
-```bash
-cp .env.example .env
-```
+### 3.Configure environment variables
+
 # Edit .env with your configuration
-Start the development server
+  * Start the development server
 
-bash
+```bash
 npm run dev
-Access the API
+```
+  * Access the API
 
-text
+```bash
 http://localhost:5000
-⚙️ Environment Variables
-Create a .env file in the root directory:
-
+```
+  * ⚙️ Environment Variables
+     - Create a .env file in the root directory:
 env
 # Server Configuration
-PORT=5000
-NODE_ENV=development
-APP_URL=http://localhost:5000
+ - PORT=5000
+ - NODE_ENV=development
+ - APP_URL=http://localhost:5000
 
 # Database
-MONGO_URI=mongodb://localhost:27017/busticket
-# or for MongoDB Atlas
-# MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/busticket
+ - MONGO_URI=mongodb://localhost:27017/busticket
+ - or for MongoDB Atlas
+ - MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/busticket
 
 # JWT Configuration
-JWT_SECRET=your_super_secret_jwt_key_change_in_production
-JWT_EXPIRES_IN=24h
-JWT_REFRESH_SECRET=your_refresh_secret_key
-JWT_REFRESH_EXPIRES_IN=7d
+ - JWT_SECRET=your_super_secret_jwt_key_change_in_production
+ - JWT_EXPIRES_IN=24h
+ - JWT_REFRESH_SECRET=your_refresh_secret_key
+ - JWT_REFRESH_EXPIRES_IN=7d
 
 # bKash Payment Configuration
-BKASH_APP_KEY=your_bkash_app_key
-BKASH_APP_SECRET=your_bkash_app_secret
-BKASH_USERNAME=your_bkash_username
-BKASH_PASSWORD=your_bkash_password
+ - BKASH_APP_KEY=your_bkash_app_key
+ - BKASH_APP_SECRET=your_bkash_app_secret
+ - BKASH_USERNAME=your_bkash_username
+ - BKASH_PASSWORD=your_bkash_password
 
 # Email Configuration (for notifications)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_email_password
+ - SMTP_HOST=smtp.gmail.com
+ - SMTP_PORT=587
+ - SMTP_USER=your_email@gmail.com
+ - SMTP_PASS=your_email_password
 
 # Redis Configuration (for caching & rate limiting)
-REDIS_URL=redis://localhost:6379
-📚 API Endpoints
-Authentication
-Method	Endpoint	Description	Auth Required
-POST	/api/auth/register	Register new user	No
-POST	/api/auth/login	User login	No
-POST	/api/auth/logout	User logout	Yes
-POST	/api/auth/refresh-token	Refresh JWT token	Yes
-POST	/api/auth/forgot-password	Request password reset	No
-POST	/api/auth/reset-password	Reset password with token	No
+ * REDIS_URL=redis://localhost:6379
+ * 📚 API Endpoints
+  ## Authentication
+    | Method | Endpoint | Description | Auth Required |
+    |--------|----------|-------------|---------------|
+    | POST | `/api/auth/register` | Register new user | No |
+    | POST | `/api/auth/login` | User login | No |
+    | POST | `/api/auth/logout` | User logout | Yes |
+    | POST | `/api/auth/refresh-token` | Refresh JWT token | Yes |
+    | POST | `/api/auth/forgot-password` | Request password reset | No |
+    | POST | `/api/auth/reset-password` | Reset password with token | No |
 User Profile
 Method	Endpoint	Description	Auth Required
 GET	/api/users/profile	Get user profile	Yes
