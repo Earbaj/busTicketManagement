@@ -439,41 +439,58 @@ curl -X POST http://localhost:5000/api/bookings \
 | 500 | Internal Server Error | Server error |
 
 ---
-🧪 Testing
-Run Tests
+
+### 🧪 Testing
+* Run Tests
 bash
 # Run all tests
-npm test
+* npm test
 
 # Run tests with coverage
-npm run test:coverage
+* npm run test:coverage
 
 # Run specific test suite
-npm run test:integration
-npm run test:unit
+* npm run test:integration
+* npm run test:unit
 
 # Watch mode
-npm run test:watch
-Test Categories
-Unit Tests: Models, utilities, middleware
+* npm run test:watch
+* Test Categories
+* Unit Tests: Models, utilities, middleware
 
-Integration Tests: API endpoints, database operations
+- Integration Tests: API endpoints, database operations
 
-E2E Tests: Complete user flows
+- E2E Tests: Complete user flows
 
-Testing with Postman
-Import the Postman collection from /postman/
+## 🧪 **Testing with Postman**
 
-Set environment variables:
+1. **Import the Postman collection**
+   - Download the collection from `/postman/bus-ticket-api.postman_collection.json`
+   - Import into Postman: `File → Import → Select file`
 
-baseUrl: http://localhost:5000/api
+2. **Set up environment variables in Postman**
+   ```json
+   {
+     "baseUrl": "http://localhost:5000/api",
+     "adminToken": "your_admin_jwt_token",
+     "userToken": "your_user_jwt_token",
+     "bookingId": "",
+     "tripId": ""
+   }
+   ```
 
-adminToken: Admin JWT token
+3. **Testing workflow:**
+   - Create variables in Postman environment
+   - Run requests in sequence:
+     1. Register admin/user
+     2. Login to get tokens
+     3. Test protected endpoints
 
-userToken: User JWT token
+---
 
-📦 Project Structure
-text
+## 📦 **Project Structure**
+
+```
 bus-ticket-api/
 ├── src/
 │   ├── app.js                 # Express app configuration
@@ -512,23 +529,44 @@ bus-ticket-api/
 │   └── sockets/             # Socket.io handlers
 │       └── notifications.js
 ├── tests/                   # Test files
-│   ├── unit/
-│   ├── integration/
-│   └── setup.js
-├── .env.example            # Environment variables template
+│   ├── unit/               # Unit tests
+│   │   ├── user.model.test.js
+│   │   ├── auth.service.test.js
+│   │   └── utils.test.js
+│   ├── integration/        # Integration tests
+│   │   ├── auth.test.js
+│   │   ├── booking.test.js
+│   │   └── payment.test.js
+│   └── setup.js           # Test setup
+├── postman/               # Postman files
+│   ├── bus-ticket-api.postman_collection.json
+│   └── bus-ticket-api.postman_environment.json
+├── docker/                # Docker files
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── .env.example           # Environment variables template
 ├── .gitignore
 ├── package.json
 ├── README.md
-└── jest.config.js
-🐳 Docker Deployment
-1. Build Docker Image
-bash
+└── jest.config.js        # Jest configuration
+```
+
+---
+
+## 🐳 **Docker Deployment**
+
+### 1. Build Docker Image
+```bash
 docker build -t bus-ticket-api .
-2. Run with Docker Compose
-bash
+```
+
+### 2. Run with Docker Compose
+```bash
 docker-compose up -d
-3. Docker Compose Configuration
-yaml
+```
+
+### 3. Docker Compose Configuration
+```yaml
 version: '3.8'
 services:
   app:
@@ -539,9 +577,12 @@ services:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongodb:27017/busticket
       - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - mongodb
       - redis
+    volumes:
+      - ./logs:/app/logs
 
   mongodb:
     image: mongo:latest
@@ -549,6 +590,10 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin123
 
   redis:
     image: redis:alpine
@@ -556,60 +601,63 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    command: redis-server --appendonly yes
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - app
 
 volumes:
   mongodb_data:
   redis_data:
-🔧 Development Guidelines
-Code Style
-Use ESLint with Airbnb style guide
+  app_logs:
+```
 
-Prettier for code formatting
+### Git Workflow
+1. Create feature branch from develop
 
-Consistent naming conventions
+2. Make changes with descriptive commits
 
-Git Workflow
-Create feature branch from develop
+3. Run tests before pushing
 
-Make changes with descriptive commits
+4. Create pull request for review
 
-Run tests before pushing
+5. Merge after approval
 
-Create pull request for review
+### 📊 API Rate Limiting
 
-Merge after approval
+|Endpoint Type	|Rate Limit	    |Window     |
+|---------------|---------------|-----------|
+|Authentication	| 10 requests	| 15 minutes|
+|Public APIs	| 100 requests	| 1 minute  |
+|User APIs	    | 60 requests	| 1 minute  |
+|Admin APIs	    | 30 requests	| 1 minute  |
 
-Commit Message Format
-text
-feat: add user authentication
-fix: resolve payment verification issue
-docs: update API documentation
-style: format code with prettier
-refactor: improve booking logic
-test: add integration tests for auth
-chore: update dependencies
-📊 API Rate Limiting
-Endpoint Type	Rate Limit	Window
-Authentication	10 requests	15 minutes
-Public APIs	100 requests	1 minute
-User APIs	60 requests	1 minute
-Admin APIs	30 requests	1 minute
-🔐 Security Best Practices
-HTTPS: Always use HTTPS in production
+---
 
-CORS: Configure proper CORS settings
+### 🔐 Security Best Practices
+1. HTTPS: Always use HTTPS in production
 
-Helmet: Security headers middleware
+2. CORS: Configure proper CORS settings
 
-Input Validation: Validate all user inputs
+3. Helmet: Security headers middleware
 
-SQL Injection: Use parameterized queries
+4. Input Validation: Validate all user inputs
 
-XSS Protection: Sanitize user inputs
+5. SQL Injection: Use parameterized queries
 
-Rate Limiting: Prevent brute force attacks
+6. XSS Protection: Sanitize user inputs
 
-JWT Security: Store tokens securely
+7. Rate Limiting: Prevent brute force attacks
+
+8. JWT Security: Store tokens securely
 
 📱 Mobile App Integration
 Flutter/Dart Example
