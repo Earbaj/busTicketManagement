@@ -488,70 +488,68 @@ bash
 
 ---
 
-## 📦 **Project Structure**
+## 📁 **Project Structure**
 
-```
+```bash
 bus-ticket-api/
-├── src/
-│   ├── app.js                 # Express app configuration
-│   ├── server.js              # Server entry point
-│   ├── config/                # Configuration files
-│   │   ├── database.js        # DB connection
-│   │   └── constants.js       # App constants
-│   ├── middleware/            # Custom middleware
-│   │   ├── auth.js           # Authentication middleware
-│   │   ├── errorHandler.js   # Error handling middleware
-│   │   └── validation.js     # Request validation
-│   ├── models/               # MongoDB models
-│   │   ├── user.model.js
-│   │   ├── bus.model.js
-│   │   ├── trip.model.js
-│   │   ├── booking.model.js
-│   │   └── payment.model.js
-│   ├── controllers/          # Route controllers
-│   │   ├── auth.controller.js
-│   │   ├── user.controller.js
-│   │   ├── bus.controller.js
-│   │   └── booking.controller.js
-│   ├── routes/               # API routes
-│   │   ├── auth.routes.js
-│   │   ├── user.routes.js
-│   │   ├── bus.routes.js
-│   │   └── booking.routes.js
-│   ├── services/             # Business logic
-│   │   ├── auth.service.js
-│   │   ├── booking.service.js
-│   │   └── payment.service.js
-│   ├── utils/               # Utility functions
-│   │   ├── jwt.js
-│   │   ├── validation.js
-│   │   └── helpers.js
-│   └── sockets/             # Socket.io handlers
-│       └── notifications.js
-├── tests/                   # Test files
-│   ├── unit/               # Unit tests
-│   │   ├── user.model.test.js
-│   │   ├── auth.service.test.js
-│   │   └── utils.test.js
-│   ├── integration/        # Integration tests
-│   │   ├── auth.test.js
-│   │   ├── booking.test.js
-│   │   └── payment.test.js
-│   └── setup.js           # Test setup
-├── postman/               # Postman files
-│   ├── bus-ticket-api.postman_collection.json
-│   └── bus-ticket-api.postman_environment.json
-├── docker/                # Docker files
-│   ├── Dockerfile
-│   └── docker-compose.yml
-├── .env.example           # Environment variables template
-├── .gitignore
-├── package.json
-├── README.md
-└── jest.config.js        # Jest configuration
+├── 📂 src/                          # Source Code
+│   ├── 🚀 app.js                    # Express app configuration
+│   ├── ⚙️ server.js                 # Server entry point
+│   ├── 📂 config/                   # Configuration files
+│   │   ├── 🗄️ database.js           # Database connection
+│   │   └── 🔧 constants.js          # Application constants
+│   ├── 📂 middleware/               # Custom middleware
+│   │   ├── 🔐 auth.js               # Authentication middleware
+│   │   ├── ❌ errorHandler.js       # Error handling middleware
+│   │   └── ✅ validation.js         # Request validation
+│   ├── 📂 models/                   # Database Models (Mongoose)
+│   │   ├── 👤 user.model.js         # User model
+│   │   ├── 🚌 bus.model.js          # Bus model
+│   │   ├── 🗺️ trip.model.js         # Trip model
+│   │   ├── 🎫 booking.model.js      # Booking model
+│   │   └── 💳 payment.model.js      # Payment model
+│   ├── 📂 controllers/              # Route Controllers
+│   │   ├── 🔑 auth.controller.js    # Authentication controller
+│   │   ├── 👤 user.controller.js    # User controller
+│   │   ├── 🚌 bus.controller.js     # Bus controller
+│   │   └── 🎫 booking.controller.js # Booking controller
+│   ├── 📂 routes/                   # API Routes
+│   │   ├── 🛣️ auth.routes.js        # Auth routes
+│   │   ├── 🛣️ user.routes.js        # User routes
+│   │   ├── 🛣️ bus.routes.js         # Bus routes
+│   │   └── 🛣️ booking.routes.js     # Booking routes
+│   ├── 📂 services/                 # Business Logic Layer
+│   │   ├── ⚙️ auth.service.js       # Auth service
+│   │   ├── ⚙️ booking.service.js    # Booking service
+│   │   └── ⚙️ payment.service.js    # Payment service
+│   ├── 📂 utils/                    # Utility Functions
+│   │   ├── 🗝️ jwt.js                # JWT utilities
+│   │   ├── ✅ validation.js         # Validation utilities
+│   │   └── 🛠️ helpers.js            # Helper functions
+│   └── 📂 sockets/                  # WebSocket handlers
+│       └── 🔔 notifications.js      # Notification socket events
+├── 📂 tests/                        # Test Suites
+│   ├── 📂 unit/                     # Unit Tests
+│   │   ├── ✅ user.model.test.js    # User model tests
+│   │   ├── ✅ auth.service.test.js  # Auth service tests
+│   │   └── ✅ utils.test.js         # Utility tests
+│   ├── 📂 integration/              # Integration Tests
+│   │   ├── 🔗 auth.test.js          # Auth integration tests
+│   │   ├── 🔗 booking.test.js       # Booking integration tests
+│   │   └── 🔗 payment.test.js       # Payment integration tests
+│   └── ⚙️ setup.js                  # Test setup configuration
+├── 📂 postman/                      # API Testing Files
+│   ├── 📄 bus-ticket-api.postman_collection.json
+│   └── 📄 bus-ticket-api.postman_environment.json
+├── 📂 docker/                       # Docker Configuration
+│   ├── 🐳 Dockerfile
+│   └── 🐳 docker-compose.yml
+├── 📄 .env.example                  # Environment variables template
+├── 📄 .gitignore                    # Git ignore file
+├── 📄 package.json                  # Dependencies and scripts
+├── 📄 README.md                     # Project documentation
+└── 📄 jest.config.js               # Jest configuration
 ```
-
----
 
 ## 🐳 **Docker Deployment**
 
