@@ -154,71 +154,100 @@ env
 # Redis Configuration (for caching & rate limiting)
  * REDIS_URL=redis://localhost:6379
  * 📚 API Endpoints
-  ## Authentication
-    | Method | Endpoint | Description | Auth Required |
-    |--------|----------|-------------|---------------|
-    | POST | `/api/auth/register` | Register new user | No |
-    | POST | `/api/auth/login` | User login | No |
-    | POST | `/api/auth/logout` | User logout | Yes |
-    | POST | `/api/auth/refresh-token` | Refresh JWT token | Yes |
-    | POST | `/api/auth/forgot-password` | Request password reset | No |
-    | POST | `/api/auth/reset-password` | Reset password with token | No |
-User Profile
-Method	Endpoint	Description	Auth Required
-GET	/api/users/profile	Get user profile	Yes
-PUT	/api/users/profile	Update user profile	Yes
-GET	/api/users/bookings	Get user bookings	Yes
-GET	/api/users/notifications	Get user notifications	Yes
-Buses & Operators
-Method	Endpoint	Description	Auth Required	Role
-GET	/api/buses	Get all buses	No	-
-POST	/api/buses	Create new bus	Yes	Admin
-GET	/api/buses/:id	Get bus details	No	-
-PUT	/api/buses/:id	Update bus	Yes	Admin
-DELETE	/api/buses/:id	Delete bus	Yes	Admin
-GET	/api/operators	Get all operators	No	-
-POST	/api/operators	Create operator	Yes	Admin
-Routes
-Method	Endpoint	Description	Auth Required	Role
-GET	/api/routes	Get all routes	No	-
-POST	/api/routes	Create route	Yes	Admin
-GET	/api/routes/:id	Get route details	No	-
-GET	/api/routes/search	Search routes	No	-
-Trips & Schedules
-Method	Endpoint	Description	Auth Required	Role
-GET	/api/trips	Get available trips	No	-
-POST	/api/trips	Create trip	Yes	Admin
-GET	/api/trips/:id	Get trip details	No	-
-GET	/api/trips/search	Search trips by criteria	No	-
-GET	/api/trips/:id/seats	Get seat availability	No	-
-Bookings
-Method	Endpoint	Description	Auth Required
-POST	/api/bookings	Create booking	Yes
-GET	/api/bookings	Get user bookings	Yes
-GET	/api/bookings/:id	Get booking details	Yes
-POST	/api/bookings/:id/cancel	Cancel booking	Yes
-GET	/api/bookings/:id/ticket	Get e-ticket	Yes
-Payments
-Method	Endpoint	Description	Auth Required
-POST	/api/payments/create	Create payment	Yes
-POST	/api/payments/verify	Verify payment	Yes
-GET	/api/payments/history	Payment history	Yes
-POST	/api/payments/refund	Request refund	Yes
-Notifications
-Method	Endpoint	Description	Auth Required
-GET	/api/notifications	Get notifications	Yes
-PUT	/api/notifications/:id/read	Mark as read	Yes
-DELETE	/api/notifications/:id	Delete notification	Yes
-Admin Endpoints
-Method	Endpoint	Description	Auth Required	Role
-GET	/api/admin/stats	System statistics	Yes	Admin
-GET	/api/admin/users	List all users	Yes	Admin
-PUT	/api/admin/users/:id	Update user	Yes	Admin
-POST	/api/admin/broadcast	Broadcast notification	Yes	Admin
-GET	/api/admin/reports	Generate reports	Yes	Admin
-🔒 Authentication Flow
-1. Registration
-json
+## 🔐 **Authentication**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/api/auth/register` | Register new user | No |
+| POST | `/api/auth/login` | User login | No |
+| POST | `/api/auth/logout` | User logout | Yes |
+| POST | `/api/auth/refresh-token` | Refresh JWT token | Yes |
+| POST | `/api/auth/forgot-password` | Request password reset | No |
+| POST | `/api/auth/reset-password` | Reset password with token | No |
+
+## 👤 **User Profile**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/users/profile` | Get user profile | Yes |
+| PUT | `/api/users/profile` | Update user profile | Yes |
+| GET | `/api/users/bookings` | Get user bookings | Yes |
+| GET | `/api/users/notifications` | Get user notifications | Yes |
+
+## 🚌 **Buses & Operators**
+
+| Method | Endpoint | Description | Auth Required | Role Required |
+|--------|----------|-------------|---------------|---------------|
+| GET | `/api/buses` | Get all buses | No | - |
+| POST | `/api/buses` | Create new bus | Yes | Admin |
+| GET | `/api/buses/:id` | Get bus details | No | - |
+| PUT | `/api/buses/:id` | Update bus | Yes | Admin |
+| DELETE | `/api/buses/:id` | Delete bus | Yes | Admin |
+| GET | `/api/operators` | Get all operators | No | - |
+| POST | `/api/operators` | Create operator | Yes | Admin |
+
+## 🗺️ **Routes**
+
+| Method | Endpoint | Description | Auth Required | Role Required |
+|--------|----------|-------------|---------------|---------------|
+| GET | `/api/routes` | Get all routes | No | - |
+| POST | `/api/routes` | Create route | Yes | Admin |
+| GET | `/api/routes/:id` | Get route details | No | - |
+| GET | `/api/routes/search` | Search routes by criteria | No | - |
+
+## 🚍 **Trips & Schedules**
+
+| Method | Endpoint | Description | Auth Required | Role Required |
+|--------|----------|-------------|---------------|---------------|
+| GET | `/api/trips` | Get available trips | No | - |
+| POST | `/api/trips` | Create trip | Yes | Admin |
+| GET | `/api/trips/:id` | Get trip details | No | - |
+| GET | `/api/trips/search` | Search trips by criteria | No | - |
+| GET | `/api/trips/:id/seats` | Get seat availability | No | - |
+
+## 🎫 **Bookings**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/api/bookings` | Create booking | Yes |
+| GET | `/api/bookings` | Get user bookings | Yes |
+| GET | `/api/bookings/:id` | Get booking details | Yes |
+| POST | `/api/bookings/:id/cancel` | Cancel booking | Yes |
+| GET | `/api/bookings/:id/ticket` | Get e-ticket | Yes |
+
+## 💳 **Payments**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/api/payments/create` | Create payment | Yes |
+| POST | `/api/payments/verify` | Verify payment | Yes |
+| GET | `/api/payments/history` | Payment history | Yes |
+| POST | `/api/payments/refund` | Request refund | Yes |
+
+## 🔔 **Notifications**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/notifications` | Get notifications | Yes |
+| PUT | `/api/notifications/:id/read` | Mark as read | Yes |
+| DELETE | `/api/notifications/:id` | Delete notification | Yes |
+
+## 👨‍💼 **Admin Endpoints**
+
+| Method | Endpoint | Description | Auth Required | Role Required |
+|--------|----------|-------------|---------------|---------------|
+| GET | `/api/admin/stats` | System statistics | Yes | Admin |
+| GET | `/api/admin/users` | List all users | Yes | Admin |
+| PUT | `/api/admin/users/:id` | Update user | Yes | Admin |
+| POST | `/api/admin/broadcast` | Broadcast notification | Yes | Admin |
+| GET | `/api/admin/reports` | Generate reports | Yes | Admin |
+
+## 🔒 **Authentication Flow**
+
+### 1. Registration
+
+**Request:**
+```http
 POST /api/auth/register
 Content-Type: application/json
 
@@ -230,9 +259,10 @@ Content-Type: application/json
   "gender": "male",
   "age": 28
 }
-Response:
+```
 
-json
+**Response:**
+```json
 {
   "success": true,
   "message": "Registration successful",
@@ -244,8 +274,12 @@ json
     "role": "user"
   }
 }
-2. Login
-json
+```
+
+### 2. Login
+
+**Request:**
+```http
 POST /api/auth/login
 Content-Type: application/json
 
@@ -253,25 +287,45 @@ Content-Type: application/json
   "email": "john@example.com",
   "password": "SecurePass123!"
 }
-3. Using Authenticated Endpoints
-Add header to all requests:
+```
 
-text
+### 3. Using Authenticated Endpoints
+
+Add this header to all authenticated requests:
+
+```
 Authorization: Bearer <your_jwt_token>
-🚌 Bus Booking Flow
-Step 1: Search for Trips
-json
+```
+
+**Example:**
+```http
+GET /api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
+```
+
+---
+
+## 🚌 **Bus Booking Flow**
+
+### Step 1: Search for Trips
+```http
 GET /api/trips/search?from=Dhaka&to=Chittagong&date=2024-01-20
-Step 2: View Trip Details
-json
+```
+
+### Step 2: View Trip Details
+```http
 GET /api/trips/507f1f77bcf86cd799439011
-Step 3: Check Seat Availability
-json
+```
+
+### Step 3: Check Seat Availability
+```http
 GET /api/trips/507f1f77bcf86cd799439011/seats
-Step 4: Create Booking
-json
+```
+
+### Step 4: Create Booking
+```http
 POST /api/bookings
-Authorization: Bearer <token>
+Authorization: Bearer <your_jwt_token>
 Content-Type: application/json
 
 {
@@ -288,10 +342,12 @@ Content-Type: application/json
   "boardingPoint": "Gabtoli Bus Counter",
   "droppingPoint": "Chittagong Bus Terminal"
 }
-Step 5: Make Payment
-json
+```
+
+### Step 5: Make Payment
+```http
 POST /api/payments/create
-Authorization: Bearer <token>
+Authorization: Bearer <your_jwt_token>
 Content-Type: application/json
 
 {
@@ -299,16 +355,90 @@ Content-Type: application/json
   "paymentMethod": "bkash",
   "amount": 2400
 }
-Step 6: Confirm Payment
-json
+```
+
+### Step 6: Confirm Payment
+```http
 POST /api/payments/verify
-Authorization: Bearer <token>
+Authorization: Bearer <your_jwt_token>
 Content-Type: application/json
 
 {
   "paymentId": "BKASH_TXN_123456",
   "bookingId": "507f1f77bcf86cd799439012"
 }
+```
+
+---
+
+## 📱 **Example Curl Commands**
+
+### Registration
+```bash
+curl -X POST http://localhost:5000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "SecurePass123!",
+    "phone": "+8801712345678",
+    "gender": "male",
+    "age": 28
+  }'
+```
+
+### Login
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "john@example.com",
+    "password": "SecurePass123!"
+  }'
+```
+
+### Search Trips
+```bash
+curl -X GET "http://localhost:5000/api/trips/search?from=Dhaka&to=Chittagong&date=2024-01-20"
+```
+
+### Create Booking (with token)
+```bash
+curl -X POST http://localhost:5000/api/bookings \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN_HERE" \
+  -d '{
+    "tripId": "507f1f77bcf86cd799439011",
+    "seats": ["A1", "A2"],
+    "passengers": [
+      {
+        "name": "John Doe",
+        "phone": "+8801712345678",
+        "gender": "male",
+        "age": 28
+      }
+    ],
+    "boardingPoint": "Gabtoli Bus Counter",
+    "droppingPoint": "Chittagong Bus Terminal"
+  }'
+```
+
+---
+
+## 🎯 **Response Status Codes**
+
+| Code | Meaning | Description |
+|------|---------|-------------|
+| 200 | OK | Request successful |
+| 201 | Created | Resource created successfully |
+| 400 | Bad Request | Invalid input parameters |
+| 401 | Unauthorized | Authentication required |
+| 403 | Forbidden | Insufficient permissions |
+| 404 | Not Found | Resource not found |
+| 409 | Conflict | Resource already exists |
+| 500 | Internal Server Error | Server error |
+
+---
 🧪 Testing
 Run Tests
 bash
