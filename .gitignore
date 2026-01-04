@@ -1,0 +1,35 @@
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+
+# Coverage
+coverage/
+
+# Runtime files
+pids/
+*.pid
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Optional: uncomment to ignore lockfiles (not recommended for apps)
+# package-lock.json
+# yarn.lock
