@@ -1,8 +1,8 @@
-🚌 Bus Ticket Booking System - API Documentation
+# 🚌 Bus Ticket Booking System - API Documentation
 📖 Overview
 A comprehensive REST API for a modern bus ticket booking system with user authentication, ticket management, payment integration, and real-time notifications.
 
-🌟 Features
+# 🌟 Features
 🔐 Authentication & Authorization
 User registration & login with JWT
 
@@ -12,7 +12,7 @@ Password reset functionality
 
 Token refresh mechanism
 
-🚌 Bus & Trip Management
+# 🚌 Bus & Trip Management
 Bus operators management
 
 Bus fleet management (AC/Non-AC, seating capacity)
@@ -23,7 +23,7 @@ Trip scheduling with departure/arrival times
 
 Real-time seat availability
 
-🎫 Ticket Booking System
+# 🎫 Ticket Booking System
 Browse available trips
 
 Seat selection with visual layout
@@ -34,7 +34,7 @@ Booking confirmation & e-ticket generation
 
 Booking history & status tracking
 
-💳 Payment Integration
+# 💳 Payment Integration
 bKash payment gateway integration
 
 Payment status tracking (Pending/Success/Failed)
@@ -43,7 +43,7 @@ Transaction history
 
 Refund processing
 
-🔔 Notifications System
+# 🔔 Notifications System
 Real-time notifications
 
 Booking confirmations
@@ -54,7 +54,7 @@ Trip reminders & updates
 
 System announcements
 
-👤 User Management
+# 👤 User Management
 Profile management
 
 Booking history
@@ -63,7 +63,7 @@ Favorite routes
 
 User preferences
 
-📊 Admin Dashboard
+# 📊 Admin Dashboard
 System analytics & reports
 
 User management
@@ -74,7 +74,7 @@ Trip management
 
 Notification broadcasting
 
-🛠️ Tech Stack
+# 🛠️ Tech Stack
 Technology	Purpose
 Node.js	Runtime Environment
 Express.js	Web Framework
@@ -85,7 +85,7 @@ bcryptjs	Password Hashing
 Jest	Testing Framework
 Socket.io	Real-time Notifications
 Redis	Caching & Rate Limiting
-🚀 Quick Start
+# 🚀 Quick Start
 Prerequisites
 Node.js (v18 or higher)
 
@@ -93,7 +93,7 @@ MongoDB (Local or Atlas)
 
 npm or yarn
 
-Installation
+# Installation
 Clone the repository
 
 bash
