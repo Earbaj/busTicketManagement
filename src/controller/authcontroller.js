@@ -18,14 +18,14 @@ exports.register = async (req, res) => {
       });
     }
     
-    const { name, email, password } = req.body;
+    const { name, email, password, role} = req.body;
     
     // Validate required fields
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !role) {
       return res.status(400).json({ 
         success: false,
         message: "All fields (name, email, password) are required",
-        received: { name, email, password }
+        received: { name, email, password, role }
       });
     }
     
@@ -50,6 +50,7 @@ exports.register = async (req, res) => {
       name: trimmedName,
       email: trimmedEmail,
       password: hashedPassword,
+      role: role,
     });
     
     res.status(201).json({
@@ -59,7 +60,8 @@ exports.register = async (req, res) => {
       user: {
         id: user._id,
         name: user.name,
-        email: user.email
+        email: user.email,
+        role: user.role
       }
     });
     
