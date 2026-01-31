@@ -255,10 +255,16 @@ Content-Type: application/json
   "name": "John Doe",
   "email": "john@example.com",
   "password": "SecurePass123!",
-  "phone": "+8801712345678",
-  "gender": "male",
-  "age": 28
+  "role": "USER"
 }
+
+{
+  "name": "John Admin",
+  "email": "admin@example.com",
+  "password": "SecurePass123!",
+  "role": "ADMIN"
+}
+
 ```
 
 **Response:**
@@ -274,6 +280,19 @@ Content-Type: application/json
     "role": "user"
   }
 }
+
+{
+  "success": true,
+  "message": "Registration successful",
+  "token": "eyJhbGciOiJIUzI1NiIk...",
+  "user": {
+    "id": "507f1f77bcf86cd799439012",
+    "name": "John Admin",
+    "email": "admin@example.com",
+    "role": "admin"
+  }
+}
+
 ```
 
 ### 2. Login
