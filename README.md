@@ -522,25 +522,25 @@ bus-ticket-api/
 │   │   ├── ❌ errorHandler.js       # Error handling middleware
 │   │   └── ✅ validation.js         # Request validation
 │   ├── 📂 models/                   # Database Models (Mongoose)
-│   │   ├── 👤 user.model.js         # User model
-│   │   ├── 🚌 bus.model.js          # Bus model
-│   │   ├── 🗺️ trip.model.js         # Trip model
-│   │   ├── 🎫 booking.model.js      # Booking model
-│   │   └── 💳 payment.model.js      # Payment model
+│   │   ├── 👤 usermodel.js         # User model
+│   │   ├── 🚌 busmodel.js          # Bus model
+│   │   ├── 🗺️ tripmodel.js         # Trip model
+│   │   ├── 🎫 bookingmodel.js      # Booking model
+│   │   └── 💳 paymentmodel.js      # Payment model
 │   ├── 📂 controllers/              # Route Controllers
-│   │   ├── 🔑 auth.controller.js    # Authentication controller
-│   │   ├── 👤 user.controller.js    # User controller
-│   │   ├── 🚌 bus.controller.js     # Bus controller
-│   │   └── 🎫 booking.controller.js # Booking controller
+│   │   ├── 🔑 authcontroller.js    # Authentication controller
+│   │   ├── 👤 usercontroller.js    # User controller
+│   │   ├── 🚌 buscontroller.js     # Bus controller
+│   │   └── 🎫 bookingcontroller.js # Booking controller
 │   ├── 📂 routes/                   # API Routes
-│   │   ├── 🛣️ auth.routes.js        # Auth routes
-│   │   ├── 🛣️ user.routes.js        # User routes
-│   │   ├── 🛣️ bus.routes.js         # Bus routes
-│   │   └── 🛣️ booking.routes.js     # Booking routes
+│   │   ├── 🛣️ authroutes.js        # Auth routes
+│   │   ├── 🛣️ userroutes.js        # User routes
+│   │   ├── 🛣️ busroutes.js         # Bus routes
+│   │   └── 🛣️ bookingroutes.js     # Booking routes
 │   ├── 📂 services/                 # Business Logic Layer
-│   │   ├── ⚙️ auth.service.js       # Auth service
-│   │   ├── ⚙️ booking.service.js    # Booking service
-│   │   └── ⚙️ payment.service.js    # Payment service
+│   │   ├── ⚙️ authservice.js       # Auth service
+│   │   ├── ⚙️ bookingservice.js    # Booking service
+│   │   └── ⚙️ paymentservice.js    # Payment service
 │   ├── 📂 utils/                    # Utility Functions
 │   │   ├── 🗝️ jwt.js                # JWT utilities
 │   │   ├── ✅ validation.js         # Validation utilities
@@ -549,13 +549,13 @@ bus-ticket-api/
 │       └── 🔔 notifications.js      # Notification socket events
 ├── 📂 tests/                        # Test Suites
 │   ├── 📂 unit/                     # Unit Tests
-│   │   ├── ✅ user.model.test.js    # User model tests
-│   │   ├── ✅ auth.service.test.js  # Auth service tests
-│   │   └── ✅ utils.test.js         # Utility tests
+│   │   ├── ✅ usermodeltest.js    # User model tests
+│   │   ├── ✅ authservicetest.js  # Auth service tests
+│   │   └── ✅ utilstest.js         # Utility tests
 │   ├── 📂 integration/              # Integration Tests
-│   │   ├── 🔗 auth.test.js          # Auth integration tests
-│   │   ├── 🔗 booking.test.js       # Booking integration tests
-│   │   └── 🔗 payment.test.js       # Payment integration tests
+│   │   ├── 🔗 authtest.js          # Auth integration tests
+│   │   ├── 🔗 bookingtest.js       # Booking integration tests
+│   │   └── 🔗 paymenttest.js       # Payment integration tests
 │   └── ⚙️ setup.js                  # Test setup configuration
 ├── 📂 postman/                      # API Testing Files
 │   ├── 📄 bus-ticket-api.postman_collection.json
