@@ -5,73 +5,48 @@ A comprehensive REST API for a modern bus ticket booking system with user authen
 # 🌟 Features
 * 🔐 Authentication & Authorization
 User registration & login with JWT
-
 * Role-based access control (User/Admin)
-
 * Password reset functionality
-
 * Token refresh mechanism
 
 # 🚌 Bus & Trip Management
 * Bus operators management
-
 * Bus fleet management (AC/Non-AC, seating capacity)
-
 * Route management (source to destination)
-
 * Trip scheduling with departure/arrival times
-
 * Real-time seat availability
 
 # 🎫 Ticket Booking System
 * Browse available trips
-
 * Seat selection with visual layout
-
 * Passenger information management
-
 * Booking confirmation & e-ticket generation
-
 * Booking history & status tracking
 
 # 💳 Payment Integration
 * bKash payment gateway integration
-
 * Payment status tracking (Pending/Success/Failed)
-
 * Transaction history
-
 * Refund processing
 
 # 🔔 Notifications System
 * Real-time notifications 
-
 * Booking confirmations
-
 * Payment receipts
-
 * Trip reminders & updates
-
 * System announcements
 
 # 👤 User Management
 * Profile management
-
 * Booking history
-
 * Favorite routes
-
 * User preferences
 
 # 📊 Admin Dashboard
 * System analytics & reports
-
 * User management
-
 * Revenue tracking
-
 * Trip management
-
 * Notification broadcasting
 
 # 🛠️ Tech Stack
@@ -88,9 +63,7 @@ User registration & login with JWT
 # 🚀 Quick Start
 * Prerequisites
  - Node.js (v18 or higher)
-
  - MongoDB (Local or Atlas)
-
  - npm or yarn
 
 # Installation
@@ -251,6 +224,7 @@ env
 POST /api/auth/register
 Content-Type: application/json
 
+#for user registration
 {
   "name": "John Doe",
   "email": "john@example.com",
@@ -258,6 +232,7 @@ Content-Type: application/json
   "role": "USER"
 }
 
+#for admin registration
 {
   "name": "John Admin",
   "email": "admin@example.com",
@@ -269,6 +244,8 @@ Content-Type: application/json
 
 **Response:**
 ```json
+
+#for user
 {
   "success": true,
   "message": "Registration successful",
@@ -281,6 +258,7 @@ Content-Type: application/json
   }
 }
 
+#for admin
 {
   "success": true,
   "message": "Registration successful",
